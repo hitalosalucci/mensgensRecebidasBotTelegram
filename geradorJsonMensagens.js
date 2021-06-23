@@ -1,48 +1,44 @@
+
 window.onload = function() {
+
+	var arquivo = 'https://hitalosalucci.github.io/mensgensRecebidasBotTelegram/mensagensEnviadas.txt'; 
+
 	var json = '';
+	
 	json += '{';
 
-	json += lerArquivo();
+	json += lerArquivo(arquivo);
 
 	json += '"vazio":"vazio" }';
 
-
-	function lerArquivo()
+	function lerArquivo(nome, callback)
 	{
-		var arquivo = document.getElementById('mensagensEnviadas');
+	    var req = new XMLHttpRequest();
 
-		console.log(arquivo);
+	    req.onreadystatechange = function ()
+	    {
+	        if(req.readyState === 4)
+	        {
+	            //verifica se a requisição foi bem sucedida
+	            if(req.status === 200 || req.status == 0)
+	            {	
+	            	valorArquivo = req.responseText;
+	            	
+	            	return valorArquivo;
 
-		return arquivo.contentWindow.document.body.innerHTML;
+	            }
+	        }
+	    }
+
+	    req.open("GET", nome, false);
+
+	    req.send(null);
+
+    	return valorArquivo;
 	}
-	// function fazerRequest(url){
-	// // variável dados é um array de duas posições
-	//   var dados = url;
-	//   //uri é a url aonde farei a requisição
-	//   var uri = dados[0];
-	//   //callback é a função que será executada na volta da requisição
-	//   var callback = dados[1];
-	//   lerArquivo(uri, callback);
-	// }
 
-	// function lerArquivo(nome, callback)
-	// {
-	//     var req = new XMLHttpRequest();
-	//     req.open("GET", nome, false);
-	//     req.onreadystatechange = function ()
-	//     {
-	//         if(req.readyState === 4)
-	//         {
-	//             //verifica se a requisição foi bem sucedida
-	//             if(req.status === 200 || req.status == 0)
-	//             {
-	//                 return req.responseText;
-	//             }
-	//         }
-	//     }
-	//     req.send(null);
-	// }
+	console.log(json);
 
-	document.write(json);
+	// document.getElementById('jsonFormatado');
 
 };
