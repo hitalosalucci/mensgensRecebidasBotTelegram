@@ -35,6 +35,8 @@ window.onload = function() {
 	    req.send(null);
 
     	return valorArquivo;
+
+	    
 	}
 
 	console.log(json);
