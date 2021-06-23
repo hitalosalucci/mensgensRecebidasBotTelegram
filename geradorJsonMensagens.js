@@ -37,8 +37,7 @@ window.onload = function() {
     	return valorArquivo;    
 	}
 
-	document.write((json));
-
-	// document.getElementById('jsonFormatado');
+	var divJson = document.getElementById('jsonFormatado');
+	divJson.innerHTML = (json);
 
 };
