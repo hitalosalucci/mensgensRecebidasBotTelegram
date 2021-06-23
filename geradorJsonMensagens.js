@@ -34,12 +34,10 @@ window.onload = function() {
 
 	    req.send(null);
 
-    	return valorArquivo;
-
-	    
+    	return valorArquivo;    
 	}
 
-	console.log(json);
+	document.write((json));
 
 	// document.getElementById('jsonFormatado');
 
