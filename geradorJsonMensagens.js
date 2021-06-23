@@ -38,6 +38,6 @@ window.onload = function() {
 	}
 
 	var divJson = document.getElementById('jsonFormatado');
-	divJson.innerHTML = JSON.parse(json);
+	divJson.innerHTML = json;
 
 };
